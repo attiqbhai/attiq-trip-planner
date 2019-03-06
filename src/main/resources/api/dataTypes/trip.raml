@@ -1,0 +1,16 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  description: string
+  startDate: date-only
+  returnDate: date-only
+  destinationAddress: string
+  destinationDetails: string
+  hotelReservation: string
+  rentalCar: string
+  estimatedExpense: number
+
+examples: !include ../examples/trip-example.raml
+
+  

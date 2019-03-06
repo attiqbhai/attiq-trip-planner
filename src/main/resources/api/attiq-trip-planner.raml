@@ -1,0 +1,41 @@
+#%RAML 1.0
+version: v1
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/18323e3c-0c37-4539-8aa9-805d79bfb729/ # 
+title: attiq-trip-planner
+
+types:
+  trip: !include dataTypes/trip.raml
+
+traits:
+  client-id-required:
+    queryParameters:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+
+/trips:
+  /{userName}:
+    get:
+      is: [client-id-required]
+      headers:
+        Content-Type:
+          type: string
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              type: trip
+    post:
+      body:
+        application/json:
+          type: trip
+      responses:
+        200:
+          body:
+            application/json:
+              type: trip
+            
+    
+                
